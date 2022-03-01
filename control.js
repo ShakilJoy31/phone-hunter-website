@@ -29,7 +29,8 @@ const getPhone = (getData) => {
 
     // Showing primary data
     document.getElementById('show-phone').textContent = ''; 
-    const slicedData = getData.data.slice(0,20);
+    document.getElementById('more-detelts').textContent = ''; 
+    const slicedData = getData.data.slice(1,21);
         for(const data of slicedData){  
             const showLessInfo = () =>{
                 const parent = document.getElementById('show-phone'); 
