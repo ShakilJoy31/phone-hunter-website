@@ -13,12 +13,13 @@ fetch(url)
 
 const getPhone = (getData) => {
     document.getElementById('show-phone').textContent = ''; 
-        for(const data of getData.data){
+    const slicedData = getData.data.slice(1,21);
+        for(const data of slicedData){
             const showLessInfo = () =>{
                 const parent = document.getElementById('show-phone'); 
                     const div = document.createElement('div'); 
                     div.innerHTML = `
-                    <div class="card col-lg-4 m-4 col-12" style="width: 18rem;">
+                    <div class="card m-4" style="width: 18rem;">
                         <img src="${data.image}" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 id="phone-name" class="card-title">${data.brand}</h5>
@@ -59,10 +60,11 @@ const moreInfo = getId =>{
 
     const showMoreDetails = data =>{
         console.log(data); 
-            const parent = document.getElementById('show-phone'); 
+            const parent = document.getElementById('more-detelts'); 
                 const div = document.createElement('div'); 
                 div.innerHTML = `
-                <div class="card col-lg-4 m-4 col-12" style="width: 18rem;">
+                <div class="card m-4 d-flex justify-content-center" style="width: 18rem;">
+                    <div>
                     <img src="${data.data.image}" class="card-img-top" alt="...">
                     <div class="card-body">
                       <p class="card-text"${data.data.releaseDate}</p>
@@ -76,6 +78,7 @@ const moreInfo = getId =>{
                       <p class="card-text">BlueTooth: ${data.data.others.GPS}</p>
                       <p class="card-text">NFC: ${data.data.others.NFC}</p>
                       <p class="card-text">Radio: ${data.data.others.Radio}</p>
+                    </div>
                     </div>
                   </div>
                 `  
